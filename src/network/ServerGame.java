@@ -3,14 +3,21 @@ import java.io.*;
 import java.net.*;
 
 import game.SetFrame;
+import config.Config;
 
 public class ServerGame {
-    public static void main(String[] args) {       
-        try (ServerSocket serverSocket = new ServerSocket(12345)) {
+    public static void main(String[] args) {
+        // Instancia de configuración
+        Config config = new Config();
+
+        // Obtener el puerto desde el archivo properties
+        int port = config.getInt("socket_port");
+
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
             // Esperar a que un cliente se conecte
-            System.out.println("El server se está ejecutando...");
+            System.out.println("PingvsPong Server On... Esperando jugador");
             Socket clientSocket = serverSocket.accept();
-            System.out.println("¡Un cliente se ha conectado!");
+            System.out.println("Jugador ingresado... Iniciando partida");
 
             // Iniciar el frame del juego
             SetFrame frame = new SetFrame(true);

@@ -3,12 +3,20 @@ import java.io.*;
 import java.net.*;
 
 import game.SetFrame;
+import config.Config;
 
 public class ClientGame {
     public static void main(String[] args) {
+        // Instancia de configuración
+        Config config = new Config();
+
+        // Obtener el host y el puerto desde el archivo properties
+        String host = config.getString("socket_host");
+        int port = config.getInt("socket_port");
+
         SetFrame frame = new SetFrame(false);
         
-        try (Socket socket = new Socket("localhost", 12345)) {
+        try (Socket socket = new Socket(host, port)) {
             // Crear input y output streams
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             DataInputStream in = new DataInputStream(socket.getInputStream());

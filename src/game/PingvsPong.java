@@ -7,15 +7,19 @@ import javax.swing.*;
 import pojos.Ball;
 import pojos.Paddle;
 import pojos.Score;
+import config.Config;
 
 public class PingvsPong extends JPanel implements Runnable {
+    // Instancia de configuración
+    private static Config config = new Config();
+    
     // Variables para el juego
-    static final int GAME_WIDTH = 1000;
-    static final int GAME_HEIGHT = (int) (GAME_WIDTH * (5.0/9.0));
+    static final int GAME_WIDTH = config.getInt("game_width");
+    static final int GAME_HEIGHT = (int) (GAME_WIDTH * (5.0 / 9.0));  // Cálculo basado en GAME_WIDTH
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
-    static final int BALL_DIAMETER = 20;
-    static final int PADDLE_WIDTH = 25;
-    static final int PADDLE_HEIGHT = 100;
+    static final int BALL_DIAMETER = config.getInt("ball_diameter");
+    static final int PADDLE_WIDTH = config.getInt("paddle_width");
+    static final int PADDLE_HEIGHT = config.getInt("paddle_height");
 
     // Instancias sin inicializar
     Thread gameThread;
