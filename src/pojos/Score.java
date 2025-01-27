@@ -31,6 +31,10 @@ public class Score extends Rectangle {
     }
 
     public void draw(Graphics g) {
+
+        //Margen
+        int margen = 10;
+
         // Dibujar el puntaje en la pantalla
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(Color.WHITE);
@@ -41,9 +45,15 @@ public class Score extends Rectangle {
         g2d.setStroke(dashed);
         g2d.drawLine(GAME_WIDTH / 2, 0, GAME_WIDTH / 2, GAME_HEIGHT);
 
-        // Dibujar el puntaje
-        g.drawString(String.valueOf(player1 / 10) + String.valueOf(player1 % 10), (GAME_WIDTH / 2) - 85, 50);
-        g.drawString(String.valueOf(player2 / 10) + String.valueOf(player2 % 10), (GAME_WIDTH / 2) + 20, 50);
+
+        // Margen
+        int yMargin = 20;
+        int yPos = 50 + yMargin;
+
+        // Dibujar el puntaje 
+        g.drawString(String.valueOf(player1 / 10) + String.valueOf(player1 % 10), (GAME_WIDTH / 2) - 85, yPos);
+        g.drawString(String.valueOf(player2 / 10) + String.valueOf(player2 % 10), (GAME_WIDTH / 2) + 20, yPos);
+
     }
 }
 
