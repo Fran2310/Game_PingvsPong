@@ -11,10 +11,11 @@ public class SetFrame extends JFrame {
     public SetFrame(boolean isServer) {
         // Crear un nuevo frame de juego con ciertas configuraciones
         panel = new PingvsPong(isServer);
+        Color color = Color.decode("#164620");
         this.add(panel);
         this.setTitle("PingvsPong! - LAN");
         this.setResizable(false);
-        this.setBackground(Color.black);
+        this.setBackground(color);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Establecer el ícono de la ventana

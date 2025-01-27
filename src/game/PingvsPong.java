@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-
 import pojos.Ball;
 import pojos.Paddle;
 import pojos.Score;
@@ -70,10 +69,43 @@ public class PingvsPong extends JPanel implements Runnable {
 
     // Método para dibujar los elementos del juego
     public void draw(Graphics g) {
-        paddle1.draw(g);
-        paddle2.draw(g);
-        ball.draw(g);
-        score.draw(g);
+        Graphics2D g2d = (Graphics2D) g; // Convertir Graphics a Graphics2D
+
+        // Establecer el fondo del panel (por ejemplo, negro)
+        //g2d.setColor(Color.BLACK);
+        //g2d.fillRect(0, 0, getWidth(), getHeight());
+
+        // Configurar el grosor de la línea
+        float Grosorcancha = 7.0f; // Grosor de la línea (ajusta este valor)
+        g2d.setStroke(new BasicStroke(Grosorcancha));
+
+        //Margen
+        int margen = 10;
+
+        // Dibujar las líneas blancas de la mesa de ping pong
+        g2d.setColor(Color.WHITE);
+
+        // Línea superior (con margen)
+        g2d.drawLine(margen, margen, getWidth() - margen, margen);
+
+        // Línea inferior (con margen)
+        g2d.drawLine(margen, getHeight() - margen, getWidth() - margen, getHeight() - margen);
+
+        // Líneas laterales (con margen)
+        g2d.drawLine(margen, margen, margen, getHeight() - margen); // Línea izquierda
+        g2d.drawLine(getWidth() - margen, margen, getWidth() - margen, getHeight() - margen); // Línea derecha
+
+        // Dibujar la línea central
+        float grosorLinea1 = 5.0f;
+        g2d.setStroke(new BasicStroke(grosorLinea1));
+        g2d.setColor(Color.WHITE); // Color de la línea
+        int centerX = getWidth() / 2;
+        g2d.drawLine(centerX, 0, centerX, getHeight());
+        
+        paddle1.draw(g2d);
+        paddle2.draw(g2d);
+        ball.draw(g2d);
+        score.draw(g2d);
         Toolkit.getDefaultToolkit().sync(); // Sincronizar la animación
     }
 
@@ -148,9 +180,7 @@ public class PingvsPong extends JPanel implements Runnable {
         }
     }
 
-    // Método para correr el juego
     public void run() {
-        // Loop principal del juego
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -164,6 +194,11 @@ public class PingvsPong extends JPanel implements Runnable {
                 checkCollision();
                 repaint();
                 delta--;
+            }
+            try {
+                Thread.sleep(10); // Ahorrar recursos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
