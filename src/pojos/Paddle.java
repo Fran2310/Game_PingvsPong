@@ -56,5 +56,6 @@ public class Paddle extends Rectangle {
             g.setColor(Color.decode("#ff7d00"));//naranja
         }
         g.fillRect(x, y, width, height);
+        } 
     }
 }
