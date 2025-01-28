@@ -51,9 +51,9 @@ public class Paddle extends Rectangle {
     // Dibujar las raquetas
     public void draw(Graphics g) {
         if (id == 1) {
-            g.setColor(Color.decode("#eac102"));//amarillo
-        } else { 
             g.setColor(Color.decode("#ff7d00"));//naranja
+        } else { 
+            g.setColor(Color.decode("#eac102"));//amarillo
         }
         g.fillRect(x, y, width, height);
         } 
