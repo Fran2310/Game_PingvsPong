@@ -7,7 +7,6 @@ import pojos.Ball;
 import pojos.Paddle;
 import pojos.Score;
 import config.Config;
-import java.io.DataOutputStream;
 
 public class PingvsPong extends JPanel implements Runnable {
     // Instancia de configuración
@@ -31,7 +30,6 @@ public class PingvsPong extends JPanel implements Runnable {
     public Ball ball;
     public Score score;
     boolean isServer;
-    public DataOutputStream output;
 
     // Constructor para el panel de juego
     PingvsPong(boolean isServer) {
