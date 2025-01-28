@@ -12,7 +12,7 @@ public class SetFrame extends JFrame {
         // Crear un nuevo frame de juego con ciertas configuraciones
         panel = new PingvsPong(isServer);
         this.add(panel);
-        this.setTitle("PingvsPong! - LAN");
+        this.setTitle((isServer)? "PingvsPong! - LAN (Player#1 - Naranja)" : "PingvsPong! - LAN (Player#2 - Amarillo)");
         this.setResizable(false);
         this.setBackground(Color.decode("#164620"));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
