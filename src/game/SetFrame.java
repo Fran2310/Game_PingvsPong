@@ -13,7 +13,7 @@ public class SetFrame extends JFrame {
         panel = new PingvsPong(isServer);
         Color color = Color.decode("#164620");
         this.add(panel);
-        this.setTitle("PingvsPong! - LAN");
+        this.setTitle((isServer)? "PingvsPong! - LAN (Player#1 - Naranja)" : "PingvsPong! - LAN (Player#2 - Amarillo)");
         this.setResizable(false);
         this.setBackground(color);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
