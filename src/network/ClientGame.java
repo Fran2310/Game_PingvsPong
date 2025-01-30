@@ -55,7 +55,7 @@ public class ClientGame {
                 try {
                     out.writeInt(frame.panel.paddle2.y);
                     out.flush();
-                    Thread.sleep(10); // Pequeña pausa para evitar sobrecargar el servidor
+                    Thread.sleep(1); // Pequeña pausa para evitar sobrecargar el servidor
                 } catch (IOException | InterruptedException e) {
                     if (!gameEnded) { // Solo muestra el mensaje si el juego no ha terminado
                         handleDisconnection(frame, "Error al enviar datos al servidor: " + e.getMessage());
