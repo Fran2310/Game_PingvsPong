@@ -32,9 +32,6 @@ public class Score extends Rectangle {
 
     public void draw(Graphics g) {
 
-        //Margen
-        int margen = 10;
-
         // Dibujar el puntaje en la pantalla
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(Color.WHITE);
